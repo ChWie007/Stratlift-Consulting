@@ -387,3 +387,58 @@ p {
     background: #d4af37 !important;
     color: #050505 !important;
 }
+
+.cookie-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(900px, 95%);
+    background: #0f0f0f;
+    border: 1px solid #d4af37;
+    padding: 20px;
+    z-index: 9999;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.cookie-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.cookie-content p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.cookie-content a {
+    color: #d4af37;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.cookie-decline {
+    border: 1px solid #666;
+    background: transparent;
+    color: #ccc;
+    padding: 14px 24px;
+    cursor: pointer;
+}
+
+.cookie-decline:hover {
+    background: #222;
+}
+
+@media (max-width: 768px) {
+
+    .cookie-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+}
