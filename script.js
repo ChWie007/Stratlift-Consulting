@@ -24,3 +24,29 @@ button.addEventListener("click", () => {
     });
 
 });
+
+// COOKIE BANNER
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const banner = document.getElementById("cookie-banner");
+
+    if (!banner) return;
+
+    const accepted = localStorage.getItem("cookieConsent");
+
+    if (accepted) {
+        banner.style.display = "none";
+    }
+
+    document.getElementById("accept-cookies").addEventListener("click", () => {
+        localStorage.setItem("cookieConsent", "accepted");
+        banner.style.display = "none";
+    });
+
+    document.getElementById("decline-cookies").addEventListener("click", () => {
+        localStorage.setItem("cookieConsent", "declined");
+        banner.style.display = "none";
+    });
+
+});
