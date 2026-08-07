@@ -1,85 +1,92 @@
-const button = document.getElementById("lang-toggle");
+document.addEventListener("DOMContentLoaded", () => {
 
-let lang = "de";
+    /* ==========================
+       SPRACHUMSCHALTER
+    ========================== */
 
-button.addEventListener("click", () => {
+    const button = document.getElementById("lang-toggle");
 
-    lang = lang === "de" ? "en" : "de";
+    let lang = "de";
 
-    button.textContent =
-        lang === "de"
-        ? "EN"
-        : "DE";
-
-    document.documentElement.lang = lang;
+    // Deutsche Texte direkt beim Laden anzeigen
 
     document.querySelectorAll("[data-de]").forEach(el => {
-
-        if (lang === "de") {
-            el.innerHTML = el.dataset.de;
-        } else {
-            el.innerHTML = el.dataset.en;
-        }
-
+        el.innerHTML = el.dataset.de;
     });
 
-});
+    if (button) {
 
-// COOKIE BANNER
+        button.addEventListener("click", () => {
 
-document.addEventListener("DOMContentLoaded", () => {
+            lang = lang === "de" ? "en" : "de";
+
+            button.textContent =
+                lang === "de"
+                ? "EN"
+                : "DE";
+
+            document.documentElement.lang = lang;
+
+            document.querySelectorAll("[data-de]").forEach(el => {
+
+                el.innerHTML =
+                    lang === "de"
+                    ? el.dataset.de
+                    : el.dataset.en;
+
+            });
+
+        });
+
+    }
+
+    /* ==========================
+       COOKIE BANNER
+    ========================== */
 
     const banner = document.getElementById("cookie-banner");
 
-    if (!banner) return;
+    if (banner) {
 
-    const accepted = localStorage.getItem("cookieConsent");
+        const accepted = localStorage.getItem("cookieConsent");
 
-    if (accepted) {
-        banner.style.display = "none";
+        if (accepted) {
+            banner.style.display = "none";
+        }
+
+        const acceptBtn = document.getElementById("accept-cookies");
+        const declineBtn = document.getElementById("decline-cookies");
+
+        if (acceptBtn) {
+
+            acceptBtn.addEventListener("click", () => {
+
+                localStorage.setItem(
+                    "cookieConsent",
+                    "accepted"
+                );
+
+                banner.style.display = "none";
+
+            });
+
+        }
+
+        if (declineBtn) {
+
+            declineBtn.addEventListener("click", () => {
+
+                localStorage.setItem(
+                    "cookieConsent",
+                    "declined"
+                );
+
+                banner.style.display = "none";
+
+            });
+
+        }
+
     }
-
-    document.getElementById("accept-cookies").addEventListener("click", () => {
-        localStorage.setItem("cookieConsent", "accepted");
-        banner.style.display = "none";
-    });
-
-    document.getElementById("decline-cookies").addEventListener("click", () => {
-        localStorage.setItem("cookieConsent", "declined");
-        banner.style.display = "none";
-    });
-
-});
-
-const button = document.getElementById("lang-toggle");
-
-let lang = "de";
-
-/* TEXT BEIM LADEN SOFORT SETZEN */
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    document.querySelectorAll("[data-de]").forEach(el => {
-        el.textContent = el.dataset.de;
-    });
-
-});
-
-/* SPRACHUMSCHALTER */
-
-button.addEventListener("click", () => {
-
-    lang = lang === "de" ? "en" : "de";
-
-    button.textContent = lang === "de" ? "EN" : "DE";
-
-    document.querySelectorAll("[data-de]").forEach(el => {
-
-        el.textContent =
-            lang === "de"
-            ? el.dataset.de
-            : el.dataset.en;
-
-    });
 
 });
