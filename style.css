@@ -1,5 +1,5 @@
 /* =========================================
-   STRATLIFT CONSULTING WIESEMANN 
+   STRATLIFT CONSULTING WIESEMANN
    Luxury Boutique Consulting Theme
 ========================================= */
 
@@ -13,11 +13,21 @@
     --border: rgba(212, 175, 55, 0.15);
 }
 
+
+/* =========================================
+   RESET
+========================================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+
+/* =========================================
+   BASE
+========================================= */
 
 html {
     scroll-behavior: smooth;
@@ -30,6 +40,7 @@ body {
     line-height: 1.7;
     overflow-x: hidden;
 }
+
 
 /* =========================================
    TYPOGRAPHY
@@ -60,7 +71,7 @@ h3 {
 }
 
 p {
-    color: #d0d0d0;
+    color: #e0e0e0;
     font-size: 1.05rem;
 }
 
@@ -73,6 +84,7 @@ a {
 a:hover {
     color: var(--gold-light);
 }
+
 
 /* =========================================
    HEADER
@@ -93,14 +105,14 @@ header {
 }
 
 .logo img {
-    height: 100px !important;
+    height: 110px;
     width: auto;
     display: block;
     transition: transform 0.3s ease;
 }
 
 .logo img:hover {
-    transform: scale(1.06);
+    transform: scale(1.2);
 }
 
 nav {
@@ -133,6 +145,7 @@ nav a:hover {
     background: var(--gold);
     color: black;
 }
+
 
 /* =========================================
    HERO
@@ -179,9 +192,10 @@ nav a:hover {
 
 .cta:hover {
     background: var(--gold);
-    color: black;
+    color: var(--black);
     transform: translateY(-2px);
 }
+
 
 /* =========================================
    SECTIONS
@@ -195,8 +209,9 @@ section {
     background: var(--black-soft);
 }
 
+
 /* =========================================
-   SERVICE CARDS
+   SERVICE / CASE CARDS
 ========================================= */
 
 .cards {
@@ -221,6 +236,31 @@ section {
 .card h3 {
     color: var(--gold);
 }
+
+.service-number {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   CASE RESULTS
+========================================= */
+
+.case-result {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border);
+    color: var(--gold);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
 
 /* =========================================
    ABOUT
@@ -248,6 +288,7 @@ section {
     font-size: 1.15rem;
 }
 
+
 /* =========================================
    CONTACT
 ========================================= */
@@ -262,6 +303,7 @@ section {
 .contact-box p {
     margin-bottom: 15px;
 }
+
 
 /* =========================================
    FOOTER
@@ -281,6 +323,7 @@ footer {
     margin: 0 15px;
 }
 
+
 /* =========================================
    ANIMATIONS
 ========================================= */
@@ -296,7 +339,252 @@ footer {
         opacity: 1;
         transform: translateY(0);
     }
+
 }
+
+
+/* =========================================
+   FORCE GOLD
+========================================= */
+
+h1,
+h2,
+h3,
+nav a,
+.contact-box a,
+.footer-links a {
+    color: var(--gold) !important;
+}
+
+.hero h1 {
+    color: var(--gold) !important;
+}
+
+.cta {
+    color: var(--gold) !important;
+    border: 1px solid var(--gold) !important;
+}
+
+.cta:hover {
+    background: var(--gold) !important;
+    color: var(--black) !important;
+}
+
+
+/* =========================================
+   COOKIE BANNER
+========================================= */
+
+.cookie-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(900px, 95%);
+    background: var(--black-soft);
+    border: 1px solid var(--gold);
+    padding: 20px;
+    z-index: 9999;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.cookie-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.cookie-content p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.cookie-content a {
+    color: var(--gold);
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.cookie-decline {
+    border: 1px solid #666;
+    background: transparent;
+    color: #ccc;
+    padding: 14px 24px;
+    cursor: pointer;
+}
+
+.cookie-decline:hover {
+    background: #222;
+}
+
+
+/* =========================================
+   LEGAL PAGES
+========================================= */
+
+/*
+   Header für Impressum / Datenschutz
+*/
+
+.legal-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 115px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 15px 6%;
+
+    z-index: 9999;
+
+    background: rgba(5, 5, 5, 0.90);
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+/*
+   Legal-Page Logo
+*/
+
+.legal-logo {
+    display: block;
+}
+
+.legal-logo img {
+    height: 115px;
+    width: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.legal-logo img:hover {
+    transform: scale(1.04);
+}
+
+
+/*
+   Language Switch
+*/
+
+.legal-language {
+    position: absolute;
+    right: 6%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.language-button {
+    border: 1px solid var(--gold);
+    background: transparent;
+    color: var(--gold);
+
+    padding: 8px 14px;
+
+    cursor: pointer;
+    border-radius: 4px;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+
+    transition: 0.3s ease;
+}
+
+.language-button:hover {
+    background: var(--gold);
+    color: var(--black);
+}
+
+
+/*
+   Legal Content
+*/
+
+.legal-page {
+    max-width: 900px;
+    margin: 0 auto;
+
+    padding: 170px 30px 80px;
+}
+
+
+/*
+   Legal Main Title
+*/
+
+.legal-title {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 2.5rem !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0 !important;
+
+    margin-bottom: 30px;
+
+    color: var(--gold) !important;
+}
+
+
+/*
+   Legal Subheadings
+*/
+
+.legal-page h2 {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 1.3rem !important;
+
+    margin-top: 40px;
+    margin-bottom: 20px;
+
+    color: var(--gold) !important;
+}
+
+
+/*
+   Legal Paragraphs
+*/
+
+.legal-page p {
+    margin-bottom: 20px;
+    color: #e0e0e0;
+    font-size: 1.05rem;
+}
+
+
+/*
+   Legal Divider
+*/
+
+.legal-page hr {
+    border: none;
+
+    height: 1px;
+
+    background: rgba(212,175,55,0.2);
+
+    margin: 60px 0;
+}
+
+
+/*
+   Back Button
+*/
+
+.legal-back {
+    margin-top: 50px;
+}
+
 
 /* =========================================
    MOBILE
@@ -328,7 +616,53 @@ footer {
     header {
         padding: 20px 6%;
     }
+
 }
+
+
+/* =========================================
+   MOBILE LEGAL PAGES
+========================================= */
+
+@media (max-width: 768px) {
+
+    .cookie-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cookie-buttons {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .legal-header {
+        height: 90px;
+        padding: 10px 5%;
+    }
+
+    .legal-logo img {
+        height: 80px;
+    }
+
+    .legal-language {
+        right: 5%;
+    }
+
+    .legal-page {
+        padding: 125px 22px 60px;
+    }
+
+    .legal-title {
+        font-size: 2.2rem !important;
+    }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
 
 @media (max-width: 600px) {
 
@@ -344,173 +678,22 @@ footer {
         font-size: 1rem;
     }
 
-   }
-
-/* FORCE GOLD */
-
-h1,
-h2,
-h3,
-nav a,
-.contact-box a,
-.footer-links a {
-    color: #d4af37 !important;
-}
-
-body {
-    background: #050505;
-}
-
-p {
-    color: #e0e0e0;
-}
-
-.hero h1 {
-    color: #d4af37 !important;
-}
-
-.cta {
-    color: #d4af37 !important;
-    border: 1px solid #d4af37 !important;
-}
-
-.service-number {
-    display: block;
-    font-size: 0.9rem;
-    color: #d4af37;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
-    font-weight: 600;
-}
-
-.cta:hover {
-    background: #d4af37 !important;
-    color: #050505 !important;
-}
-
-.cookie-banner {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(900px, 95%);
-    background: #0f0f0f;
-    border: 1px solid #d4af37;
-    padding: 20px;
-    z-index: 9999;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-}
-
-.cookie-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-}
-
-.cookie-content p {
-    margin: 0;
-    font-size: 0.95rem;
-}
-
-.cookie-content a {
-    color: #d4af37;
-}
-
-.cookie-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.cookie-decline {
-    border: 1px solid #666;
-    background: transparent;
-    color: #ccc;
-    padding: 14px 24px;
-    cursor: pointer;
-}
-
-.cookie-decline:hover {
-    background: #222;
-}
-
-@media (max-width: 768px) {
-
-    .cookie-content {
-        flex-direction: column;
-        text-align: center;
+    .legal-logo img {
+        height: 72px;
     }
 
-}
+    .legal-language {
+        right: 5%;
+    }
 
-/* =========================================
-   LEGAL PAGES
-========================================= */
+    .language-button {
+        padding: 7px 12px;
+        font-size: 0.85rem;
+    }
 
-.legal-page {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 140px 30px 80px;
-}
+    .legal-page {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 
-.legal-title {
-    font-size: 2.5rem !important;
-    line-height: 1.2 !important;
-    letter-spacing: 0 !important;
-    margin-bottom: 30px;
-    color: #d4af37 !important;
-}
-
-.legal-page h2 {
-    font-size: 1.3rem !important;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    color: #d4af37 !important;
-}
-
-.legal-page hr {
-    border: none;
-    height: 1px;
-    background: rgba(212,175,55,0.2);
-    margin: 60px 0;
-}
-
-/* =========================================
-   LEGAL PAGES
-========================================= */
-
-.legal-page {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 140px 30px 80px;
-}
-
-.legal-title {
-    font-size: 2.5rem !important;
-    line-height: 1.2 !important;
-    letter-spacing: 0 !important;
-    margin-bottom: 30px;
-    color: #d4af37 !important;
-}
-
-.legal-page h2 {
-    font-size: 1.3rem !important;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    color: #d4af37 !important;
-}
-
-.legal-page p {
-    margin-bottom: 20px;
-}
-
-.legal-page hr {
-    border: none;
-    height: 1px;
-    background: rgba(212,175,55,0.2);
-    margin: 60px 0;
-}
-
-.legal-back {
-    margin-top: 50px;
 }
