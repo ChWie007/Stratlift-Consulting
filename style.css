@@ -13,7 +13,6 @@
     --border: rgba(212, 175, 55, 0.15);
 }
 
-
 /* =========================================
    RESET
 ========================================= */
@@ -23,11 +22,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-
-/* =========================================
-   BASE
-========================================= */
 
 html {
     scroll-behavior: smooth;
@@ -40,7 +34,6 @@ body {
     line-height: 1.7;
     overflow-x: hidden;
 }
-
 
 /* =========================================
    TYPOGRAPHY
@@ -85,7 +78,6 @@ a:hover {
     color: var(--gold-light);
 }
 
-
 /* =========================================
    HEADER
 ========================================= */
@@ -104,6 +96,8 @@ header {
     border-bottom: 1px solid var(--border);
 }
 
+/* Einheitliche Logo-Größe auf ALLEN Seiten */
+
 .logo img {
     height: 110px;
     width: auto;
@@ -112,7 +106,7 @@ header {
 }
 
 .logo img:hover {
-    transform: scale(1.2);
+    transform: scale(1.06);
 }
 
 nav {
@@ -131,21 +125,28 @@ nav a:hover {
     color: var(--gold);
 }
 
-#lang-toggle {
+/* =========================================
+   LANGUAGE SWITCH
+========================================= */
+
+#lang-toggle,
+.language-button {
     border: 1px solid var(--gold);
     background: transparent;
     color: var(--gold);
     padding: 8px 14px;
     cursor: pointer;
     border-radius: 4px;
-    transition: 0.3s;
+    transition: 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
 }
 
-#lang-toggle:hover {
+#lang-toggle:hover,
+.language-button:hover {
     background: var(--gold);
-    color: black;
+    color: #050505;
 }
-
 
 /* =========================================
    HERO
@@ -159,8 +160,8 @@ nav a:hover {
     padding: 0 8%;
     background:
         linear-gradient(
-            rgba(0,0,0,0.75),
-            rgba(0,0,0,0.85)
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0.85)
         ),
         url("assets/hero-bg.jpg");
     background-size: cover;
@@ -192,10 +193,9 @@ nav a:hover {
 
 .cta:hover {
     background: var(--gold);
-    color: var(--black);
+    color: #050505;
     transform: translateY(-2px);
 }
-
 
 /* =========================================
    SECTIONS
@@ -208,7 +208,6 @@ section {
 #services {
     background: var(--black-soft);
 }
-
 
 /* =========================================
    SERVICE / CASE CARDS
@@ -223,19 +222,23 @@ section {
 .card {
     padding: 40px;
     border: 1px solid var(--border);
-    background: rgba(255,255,255,0.02);
+    background: rgba(255, 255, 255, 0.02);
     transition: all 0.35s ease;
 }
 
 .card:hover {
     transform: translateY(-8px);
     border-color: var(--gold);
-    box-shadow: 0 20px 60px rgba(212,175,55,0.12);
+    box-shadow: 0 20px 60px rgba(212, 175, 55, 0.12);
 }
 
 .card h3 {
     color: var(--gold);
 }
+
+/* =========================================
+   SERVICE NUMBERS
+========================================= */
 
 .service-number {
     display: block;
@@ -246,21 +249,18 @@ section {
     font-weight: 600;
 }
 
-
 /* =========================================
    CASE RESULTS
 ========================================= */
 
 .case-result {
     margin-top: 25px;
-    padding-top: 15px;
-    border-top: 1px solid var(--border);
     color: var(--gold);
     font-size: 0.9rem;
     letter-spacing: 1px;
     text-transform: uppercase;
+    font-weight: 600;
 }
-
 
 /* =========================================
    ABOUT
@@ -288,7 +288,6 @@ section {
     font-size: 1.15rem;
 }
 
-
 /* =========================================
    CONTACT
 ========================================= */
@@ -297,13 +296,12 @@ section {
     border: 1px solid var(--border);
     padding: 50px;
     max-width: 700px;
-    background: rgba(255,255,255,0.02);
+    background: rgba(255, 255, 255, 0.02);
 }
 
 .contact-box p {
     margin-bottom: 15px;
 }
-
 
 /* =========================================
    FOOTER
@@ -323,54 +321,6 @@ footer {
     margin: 0 15px;
 }
 
-
-/* =========================================
-   ANIMATIONS
-========================================= */
-
-@keyframes fadeUp {
-
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-}
-
-
-/* =========================================
-   FORCE GOLD
-========================================= */
-
-h1,
-h2,
-h3,
-nav a,
-.contact-box a,
-.footer-links a {
-    color: var(--gold) !important;
-}
-
-.hero h1 {
-    color: var(--gold) !important;
-}
-
-.cta {
-    color: var(--gold) !important;
-    border: 1px solid var(--gold) !important;
-}
-
-.cta:hover {
-    background: var(--gold) !important;
-    color: var(--black) !important;
-}
-
-
 /* =========================================
    COOKIE BANNER
 ========================================= */
@@ -381,11 +331,11 @@ nav a,
     left: 50%;
     transform: translateX(-50%);
     width: min(900px, 95%);
-    background: var(--black-soft);
+    background: #0f0f0f;
     border: 1px solid var(--gold);
     padding: 20px;
     z-index: 9999;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 }
 
 .cookie-content {
@@ -416,144 +366,47 @@ nav a,
     color: #ccc;
     padding: 14px 24px;
     cursor: pointer;
+    transition: 0.3s ease;
 }
 
 .cookie-decline:hover {
     background: #222;
 }
 
-
 /* =========================================
    LEGAL PAGES
 ========================================= */
 
-/*
-   Header für Impressum / Datenschutz
-*/
-
-.legal-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 115px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 15px 6%;
-
-    z-index: 9999;
-
-    background: rgba(5, 5, 5, 0.90);
-    backdrop-filter: blur(15px);
-
-    border-bottom: 1px solid var(--border);
-}
-
-
-/*
-   Legal-Page Logo
-*/
-
-.legal-logo {
-    display: block;
-}
-
-.legal-logo img {
-    height: 115px;
-    width: auto;
-    display: block;
-    transition: transform 0.3s ease;
-}
-
-.legal-logo img:hover {
-    transform: scale(1.04);
-}
-
-
-/*
-   Language Switch
-*/
-
-.legal-language {
-    position: absolute;
-    right: 6%;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.language-button {
-    border: 1px solid var(--gold);
-    background: transparent;
-    color: var(--gold);
-
-    padding: 8px 14px;
-
-    cursor: pointer;
-    border-radius: 4px;
-
-    font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
-
-    transition: 0.3s ease;
-}
-
-.language-button:hover {
-    background: var(--gold);
-    color: var(--black);
-}
-
-
-/*
-   Legal Content
-*/
-
 .legal-page {
     max-width: 900px;
     margin: 0 auto;
-
-    padding: 170px 30px 80px;
+    padding: 170px 30px 90px;
 }
 
-
-/*
-   Legal Main Title
-*/
+.legal-page h1,
+.legal-page h2,
+.legal-page h3 {
+    color: var(--gold) !important;
+}
 
 .legal-title {
-    font-family: 'Cormorant Garamond', serif;
-
-    font-size: 2.5rem !important;
+    font-size: 2.8rem !important;
     line-height: 1.2 !important;
     letter-spacing: 0 !important;
-
     margin-bottom: 30px;
-
-    color: var(--gold) !important;
 }
-
-
-/*
-   Legal Subheadings
-*/
 
 .legal-page h2 {
-    font-family: 'Cormorant Garamond', serif;
-
-    font-size: 1.3rem !important;
-
-    margin-top: 40px;
+    font-size: 1.8rem !important;
+    margin-top: 45px;
     margin-bottom: 20px;
-
-    color: var(--gold) !important;
 }
 
-
-/*
-   Legal Paragraphs
-*/
+.legal-page h3 {
+    font-size: 1.45rem !important;
+    margin-top: 40px;
+    margin-bottom: 18px;
+}
 
 .legal-page p {
     margin-bottom: 20px;
@@ -561,30 +414,97 @@ nav a,
     font-size: 1.05rem;
 }
 
-
-/*
-   Legal Divider
-*/
-
 .legal-page hr {
     border: none;
-
     height: 1px;
-
-    background: rgba(212,175,55,0.2);
-
+    background: rgba(212, 175, 55, 0.2);
     margin: 60px 0;
 }
-
-
-/*
-   Back Button
-*/
 
 .legal-back {
     margin-top: 50px;
 }
 
+/* =========================================
+   LEGAL PAGE LOGO
+========================================= */
+
+.legal-logo {
+    position: fixed;
+    top: 24px;
+    left: 8%;
+    z-index: 1000;
+    display: block;
+}
+
+.legal-logo img {
+    height: 110px;
+    width: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.legal-logo img:hover {
+    transform: scale(1.06);
+}
+
+/* =========================================
+   LEGAL PAGE LANGUAGE SWITCH
+========================================= */
+
+.legal-language {
+    position: fixed;
+    top: 45px;
+    right: 8%;
+    z-index: 1000;
+}
+
+.language-button {
+    min-width: 48px;
+}
+
+/* =========================================
+   FORCE GOLD
+========================================= */
+
+h1,
+h2,
+h3,
+nav a,
+.contact-box a,
+.footer-links a {
+    color: var(--gold) !important;
+}
+
+.hero h1 {
+    color: var(--gold) !important;
+}
+
+.cta {
+    color: var(--gold) !important;
+    border: 1px solid var(--gold) !important;
+}
+
+.cta:hover {
+    background: var(--gold) !important;
+    color: #050505 !important;
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 /* =========================================
    MOBILE
@@ -617,12 +537,27 @@ nav a,
         padding: 20px 6%;
     }
 
+    .logo img {
+        height: 90px;
+    }
+
+    .legal-logo {
+        left: 6%;
+    }
+
+    .legal-logo img {
+        height: 90px;
+    }
+
+    .legal-language {
+        right: 6%;
+        top: 35px;
+    }
+
+    .legal-page {
+        padding: 145px 25px 70px;
+    }
 }
-
-
-/* =========================================
-   MOBILE LEGAL PAGES
-========================================= */
 
 @media (max-width: 768px) {
 
@@ -632,37 +567,15 @@ nav a,
     }
 
     .cookie-buttons {
-        width: 100%;
         justify-content: center;
+        width: 100%;
     }
 
-    .legal-header {
-        height: 90px;
-        padding: 10px 5%;
+    .cookie-buttons .cta,
+    .cookie-buttons .cookie-decline {
+        flex: 1;
     }
-
-    .legal-logo img {
-        height: 80px;
-    }
-
-    .legal-language {
-        right: 5%;
-    }
-
-    .legal-page {
-        padding: 125px 22px 60px;
-    }
-
-    .legal-title {
-        font-size: 2.2rem !important;
-    }
-
 }
-
-
-/* =========================================
-   SMALL MOBILE
-========================================= */
 
 @media (max-width: 600px) {
 
@@ -678,22 +591,41 @@ nav a,
         font-size: 1rem;
     }
 
+    .logo img {
+        height: 80px;
+    }
+
+    .legal-logo {
+        left: 6%;
+        top: 20px;
+    }
+
     .legal-logo img {
-        height: 72px;
+        height: 80px;
     }
 
     .legal-language {
-        right: 5%;
-    }
-
-    .language-button {
-        padding: 7px 12px;
-        font-size: 0.85rem;
+        right: 6%;
+        top: 30px;
     }
 
     .legal-page {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding: 125px 20px 60px;
     }
 
+    .legal-title {
+        font-size: 2.3rem !important;
+    }
+
+    .legal-page h2 {
+        font-size: 1.5rem !important;
+    }
+
+    .legal-page h3 {
+        font-size: 1.3rem !important;
+    }
+
+    .legal-page p {
+        font-size: 1rem;
+    }
 }
