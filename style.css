@@ -734,3 +734,19 @@ nav a,
         gap: 40px;
     }
 }
+.social-links {
+    display: flex;
+    gap: 18px;
+    margin-top: 10px;
+}
+
+.social-icon {
+    color: var(--gold);
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-flex;
+}
+
+.social-icon:hover {
+    color: var(--gold-light);
+    transform: scale(1.1);
+}
