@@ -303,6 +303,57 @@ section {
     margin-bottom: 15px;
 }
 
+/* Formularelemente – schwarzer Hintergrund + Gold */
+.consulting-form input,
+.consulting-form select,
+.consulting-form textarea {
+    width: 100%;
+    padding: 14px 16px;
+    background: #0f0f0f !important;          /* dunkler Hintergrund */
+    border: 1px solid var(--border);
+    color: var(--gold) !important;           /* goldene Schrift */
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    appearance: none;                        /* wichtig für Select */
+    -webkit-appearance: none;
+}
+
+.consulting-form input:focus,
+.consulting-form select:focus,
+.consulting-form textarea:focus {
+    border-color: var(--gold);
+}
+
+/* Dropdown-Optionen (funktioniert in den meisten Browsern) */
+.consulting-form select option {
+    background: #0f0f0f;
+    color: var(--gold);
+}
+
+/* Button "Anfrage senden" – schwarz statt weiß */
+.consulting-form button.cta,
+button.cta {
+    background: transparent !important;      /* oder #050505 */
+    color: var(--gold) !important;
+    border: 1px solid var(--gold) !important;
+}
+
+.consulting-form button.cta:hover,
+button.cta:hover {
+    background: var(--gold) !important;
+    color: #050505 !important;
+}
+
+.consulting-form select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23d4af37' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+}
+
 /* =========================================
    FOOTER
 ========================================= */
