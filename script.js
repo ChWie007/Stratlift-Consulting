@@ -1,64 +1,53 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     /* ==========================
-       SPRACHUMSCHALTER
+       LANGUAGE SWITCH
     ========================== */
 
     const button = document.getElementById("lang-toggle");
 
     let lang = localStorage.getItem("siteLanguage") || "de";
-    localStorage.setItem("language", currentLanguage);
-    const savedLanguage =
-localStorage.getItem("language") || "de";
 
-setLanguage(savedLanguage);
+    function applyLanguage(language) {
 
-    // Deutsche Texte direkt beim Laden anzeigen
+        document.querySelectorAll("[data-de]").forEach(el => {
 
-    document.querySelectorAll("[data-de]").forEach(el => {
+            el.innerHTML =
+                language === "de"
+                ? el.dataset.de
+                : el.dataset.en;
 
-    el.innerHTML =
-        lang === "de"
-        ? el.dataset.de
-        : el.dataset.en;
+        });
 
-});
+        document.documentElement.lang = language;
 
-document.documentElement.lang = lang;
+        if (button) {
 
-if (button) {
-    button.textContent =
-        lang === "de"
-        ? "EN"
-        : "DE";
-}
-    });
+            button.textContent =
+                language === "de"
+                ? "EN"
+                : "DE";
+
+        }
+
+    }
+
+    applyLanguage(lang);
 
     if (button) {
 
         button.addEventListener("click", () => {
 
-            lang = lang === "de" ? "en" : "de";
+            lang = lang === "de"
+                ? "en"
+                : "de";
+
             localStorage.setItem(
-    "siteLanguage",
-    lang
-);
+                "siteLanguage",
+                lang
+            );
 
-            button.textContent =
-                lang === "de"
-                ? "EN"
-                : "DE";
-
-            document.documentElement.lang = lang;
-
-            document.querySelectorAll("[data-de]").forEach(el => {
-
-                el.innerHTML =
-                     === "de"
-                    ? el.dataset.de
-                    : el.dataset.en;
-
-            });
+            applyLanguage(lang);
 
         });
 
@@ -68,18 +57,25 @@ if (button) {
        COOKIE BANNER
     ========================== */
 
-    const banner = document.getElementById("cookie-banner");
+    const banner =
+        document.getElementById("cookie-banner");
 
     if (banner) {
 
-        const accepted = localStorage.getItem("cookieConsent");
+        const consent =
+            localStorage.getItem("cookieConsent");
 
-        if (accepted) {
+        if (consent) {
+
             banner.style.display = "none";
+
         }
 
-        const acceptBtn = document.getElementById("accept-cookies");
-        const declineBtn = document.getElementById("decline-cookies");
+        const acceptBtn =
+            document.getElementById("accept-cookies");
+
+        const declineBtn =
+            document.getElementById("decline-cookies");
 
         if (acceptBtn) {
 
