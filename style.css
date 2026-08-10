@@ -629,3 +629,57 @@ nav a,
         font-size: 1rem;
     }
 }
+
+/* CONTACT GRID */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.consulting-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.consulting-form input,
+.consulting-form select,
+.consulting-form textarea {
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.consulting-form input:focus,
+.consulting-form select:focus,
+.consulting-form textarea:focus {
+    border-color: var(--gold);
+}
+
+.consulting-form label {
+    color: var(--gold);
+    font-size: 0.95rem;
+    margin-bottom: -8px;
+}
+
+.consulting-form button {
+    margin-top: 10px;
+    align-self: flex-start;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
