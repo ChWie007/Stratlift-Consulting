@@ -6,12 +6,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const button = document.getElementById("lang-toggle");
 
-    let lang = "de";
+    let lang = localStorage.getItem("siteLanguage") || "de";
 
     // Deutsche Texte direkt beim Laden anzeigen
 
     document.querySelectorAll("[data-de]").forEach(el => {
-        el.innerHTML = el.dataset.de;
+
+    el.innerHTML =
+        lang === "de"
+        ? el.dataset.de
+        : el.dataset.en;
+
+});
+
+document.documentElement.lang = lang;
+
+if (button) {
+    button.textContent =
+        lang === "de"
+        ? "EN"
+        : "DE";
+}
     });
 
     if (button) {
@@ -19,6 +34,10 @@ document.addEventListener("DOMContentLoaded", () => {
         button.addEventListener("click", () => {
 
             lang = lang === "de" ? "en" : "de";
+            localStorage.setItem(
+    "siteLanguage",
+    lang
+);
 
             button.textContent =
                 lang === "de"
@@ -30,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.querySelectorAll("[data-de]").forEach(el => {
 
                 el.innerHTML =
-                    lang === "de"
+                     === "de"
                     ? el.dataset.de
                     : el.dataset.en;
 
