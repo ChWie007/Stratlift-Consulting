@@ -8,29 +8,61 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let lang = localStorage.getItem("siteLanguage") || "de";
 
-    function applyLanguage(language) {
+function applyLanguage(language) {
+    // Normale Texte
+    document.querySelectorAll("[data-de]").forEach(el => {
+        el.innerHTML = language === "de"
+            ? el.dataset.de
+            : el.dataset.en;
+    });
 
-        document.querySelectorAll("[data-de]").forEach(el => {
+    document.documentElement.lang = language;
 
-            el.innerHTML =
-                language === "de"
-                ? el.dataset.de
-                : el.dataset.en;
+    if (button) {
+        button.textContent = language === "de" ? "EN" : "DE";
+    }
 
+    // Select „Business Area“ umschalten
+    const select = document.getElementById("business-area");
+    if (select) {
+        const options = language === "de"
+            ? [
+                { value: "", text: "Geschäftsbereich wählen" },
+                { value: "Strategy", text: "Strategie" },
+                { value: "Business Development", text: "Unternehmensentwicklung" },
+                { value: "Market Entry", text: "Markteintritt" },
+                { value: "Process Optimization", text: "Prozessoptimierung" },
+                { value: "Digitalization", text: "Digitalisierung" },
+                { value: "Artificial Intelligence", text: "Künstliche Intelligenz" },
+                { value: "Other", text: "Sonstiges" }
+              ]
+            : [
+                { value: "", text: "Select Business Area" },
+                { value: "Strategy", text: "Strategy" },
+                { value: "Business Development", text: "Business Development" },
+                { value: "Market Entry", text: "Market Entry" },
+                { value: "Process Optimization", text: "Process Optimization" },
+                { value: "Digitalization", text: "Digitalization" },
+                { value: "Artificial Intelligence", text: "Artificial Intelligence" },
+                { value: "Other", text: "Other" }
+              ];
+
+        // Aktuell ausgewählten Wert merken
+        const currentValue = select.value;
+
+        // Optionen neu aufbauen
+        select.innerHTML = "";
+        options.forEach(opt => {
+            const option = document.createElement("option");
+            option.value = opt.value;
+            option.textContent = opt.text;
+            select.appendChild(option);
         });
 
-        document.documentElement.lang = language;
-
-        if (button) {
-
-            button.textContent =
-                language === "de"
-                ? "EN"
-                : "DE";
-
-        }
-
+        // Alten Wert wieder setzen (falls vorhanden)
+        select.value = currentValue;
     }
+}
 
     applyLanguage(lang);
 
