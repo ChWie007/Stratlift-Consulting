@@ -7,6 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const button = document.getElementById("lang-toggle");
 
     let lang = localStorage.getItem("siteLanguage") || "de";
+    localStorage.setItem("language", currentLanguage);
+    const savedLanguage =
+localStorage.getItem("language") || "de";
+
+setLanguage(savedLanguage);
 
     // Deutsche Texte direkt beim Laden anzeigen
 
